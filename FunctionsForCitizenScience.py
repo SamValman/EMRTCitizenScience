@@ -60,16 +60,16 @@ def graphsForCitizenScience(dataLocation, site, dateStart, dateEnd, outputLocati
     
     ## make the individual graphs
     # temperature 
-    # PhTempGraph(maindf, site, save, output)
+    PhTempGraph(maindf, site, save, output)
     
-    # ### all other graphs this loops through the titles and makes a graph
-    # for i in ['Chlorine Free (mg/L)',
-    #     'Chlorine Total (mg/L)',
-    #     'Ammonia + Nitrogen(mg/L)',
-    #     'Nitrate (mg/L)',
-    #     'Phosphate (mg/L)',
-    #     'D.O. (mg/L)']:
-    #     plotSimple(i, maindf, site, save, output)
+    ### all other graphs this loops through the titles and makes a graph
+    for i in ['Chlorine Free (mg/L)',
+        'Chlorine Total (mg/L)',
+        'Ammonia + Nitrogen(mg/L)',
+        'Nitrate (mg/L)',
+        'Phosphate (mg/L)',
+        'D.O. (mg/L)']:
+        plotSimple(i, maindf, site, save, output)
     
     # Make a panel of all of these:
     panel(maindf, site, save, output)
@@ -141,7 +141,6 @@ def plotSimple(item, df, sitename, save, output):
     plt.legend()
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.show()
     if save:
         save_path = output / f"{item.replace('/', '').replace('\\', '')}.png"
         plt.savefig(save_path, dpi=600, bbox_inches="tight")
@@ -199,6 +198,8 @@ def make_folder(location_var, varName):
     
 #%% run this 
 # plt.close('all')
+# dataLocation = r"C:\Users\Svalm\OneDrive - East Mercia Rivers Trust\GeneralEMRT\pythonForDominika\Horncastle Citizen Science Data Sheet_03Sep2025.csv"
+# site = 'Site 30'
 # graphsForCitizenScience(dataLocation, site, dateStart=('12/12/2000'), dateEnd=('12/12/2030'), outputLocation=r"C:\Users\Svalm\Downloads", save=True)
 
 
